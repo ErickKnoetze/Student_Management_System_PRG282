@@ -22,6 +22,12 @@ namespace Student_Management_System_PRG282
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.GroupBox groupSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.ComboBox comboBoxFilter;
+        private System.Windows.Forms.Label labelFilter;
+        private System.Windows.Forms.Button buttonReset;
 
 
         private void InitializeComponent()
@@ -58,6 +64,13 @@ namespace Student_Management_System_PRG282
             groupStudentInfo.SuspendLayout();
             groupSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            groupSearch = new GroupBox();
+            txtSearch = new TextBox();
+            labelSearch = new Label();
+            comboBoxFilter = new ComboBox();
+            labelFilter = new Label();
+            buttonReset = new Button();
+            groupSearch.SuspendLayout();
             SuspendLayout();
             // 
             // groupStudentInfo
@@ -332,12 +345,78 @@ namespace Student_Management_System_PRG282
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // groupSearch
+            // 
+            groupSearch.Controls.Add(comboBoxFilter);
+            groupSearch.Controls.Add(txtSearch);
+            groupSearch.Controls.Add(labelSearch);
+            groupSearch.Controls.Add(labelFilter);
+            groupSearch.Controls.Add(buttonReset);
+            groupSearch.Font = new Font("Segoe UI", 10F);
+            groupSearch.Location = new Point(692, 10);
+            groupSearch.Name = "groupSearch";
+            groupSearch.Size = new Size(177, 161);
+            groupSearch.TabIndex = 2;
+            groupSearch.TabStop = false;
+            groupSearch.Text = "Search & Filter";
+            // 
+            // txtSearch
+            // 
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Location = new Point(10, 45);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(157, 25);
+            txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // labelSearch
+            // 
+            labelSearch.AutoSize = true;
+            labelSearch.Location = new Point(10, 23);
+            labelSearch.Name = "labelSearch";
+            labelSearch.Size = new Size(100, 19);
+            labelSearch.TabIndex = 1;
+            labelSearch.Text = "Search by ID:";
+            // 
+            // comboBoxFilter
+            // 
+            comboBoxFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilter.FlatStyle = FlatStyle.Flat;
+            comboBoxFilter.Location = new Point(10, 95);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(157, 25);
+            comboBoxFilter.TabIndex = 2;
+            comboBoxFilter.SelectedIndexChanged += comboBoxFilter_SelectedIndexChanged;
+            // 
+            // labelFilter
+            // 
+            labelFilter.AutoSize = true;
+            labelFilter.Location = new Point(10, 73);
+            labelFilter.Name = "labelFilter";
+            labelFilter.Size = new Size(100, 19);
+            labelFilter.TabIndex = 3;
+            labelFilter.Text = "Filter by Course:";
+            // 
+            // buttonReset
+            // 
+            buttonReset.BackColor = Color.LightGray;
+            buttonReset.FlatAppearance.BorderSize = 0;
+            buttonReset.FlatStyle = FlatStyle.Flat;
+            buttonReset.Location = new Point(10, 125);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(157, 30);
+            buttonReset.TabIndex = 4;
+            buttonReset.Text = "Reset";
+            buttonReset.UseVisualStyleBackColor = false;
+            buttonReset.Click += buttonReset_Click;
+            // 
             // Form1
             // 
             ClientSize = new Size(881, 558);
             Controls.Add(groupStudentInfo);
             Controls.Add(groupSummary);
             Controls.Add(dataGridView);
+            Controls.Add(groupSearch);
             Name = "Form1";
             Text = "Student Management System";
             groupStudentInfo.ResumeLayout(false);
@@ -345,6 +424,8 @@ namespace Student_Management_System_PRG282
             groupSummary.ResumeLayout(false);
             groupSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            groupSearch.ResumeLayout(false);
+            groupSearch.PerformLayout();
             ResumeLayout(false);
         }
 

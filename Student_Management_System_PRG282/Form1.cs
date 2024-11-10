@@ -18,6 +18,9 @@ namespace Student_Management_System_PRG282
             
             // Load students when the form starts
             LoadStudents();
+            
+            // Initialize filter combo box
+            LoadFilterComboBox();
         }
 
         // New method to load students into DataGridView
@@ -197,6 +200,86 @@ namespace Student_Management_System_PRG282
                 txtSurname.Text = row.Cells[2].Value?.ToString() ?? string.Empty;
                 txtAge.Text = row.Cells[3].Value?.ToString() ?? string.Empty;
                 comboBoxCourse.Text = row.Cells[4].Value?.ToString() ?? string.Empty;
+            }
+        }
+
+        private void LoadFilterComboBox()
+        {
+            // Add "All Courses" as first item
+            comboBoxFilter.Items.Add("All Courses");
+            
+            // Add all courses from the course combobox
+            foreach (var item in comboBoxCourse.Items)
+            {
+                comboBoxFilter.Items.Add(item);
+            }
+            
+            // Select "All Courses" by default
+            comboBoxFilter.SelectedIndex = 0;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+            
+            if (string.IsNullOrEmpty(searchText))
+            {
+                ApplyCourseFilter();
+                return;
+            }
+
+            string selectedCourse = comboBoxFilter.SelectedItem.ToString();
+            
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                // Skip the new row
+                if (row.IsNewRow) continue;
+
+                bool idMatch = row.Cells["dataGridViewTextBoxColumn1"].Value?.ToString()
+                    .Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false;
+                
+                bool courseMatch = selectedCourse == "All Courses" || 
+                    row.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() == selectedCourse;
+
+                row.Visible = idMatch && courseMatch;
+            }
+        }
+
+        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCourseFilter();
+        }
+
+        private void ApplyCourseFilter()
+        {
+            string selectedCourse = comboBoxFilter.SelectedItem?.ToString() ?? "All Courses";
+            string searchText = txtSearch.Text.Trim();
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                // Skip the new row
+                if (row.IsNewRow) continue;
+
+                bool courseMatch = selectedCourse == "All Courses" || 
+                    row.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() == selectedCourse;
+                
+                bool idMatch = string.IsNullOrEmpty(searchText) || 
+                    (row.Cells["dataGridViewTextBoxColumn1"].Value?.ToString()
+                        ?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false);
+
+                row.Visible = courseMatch && idMatch;
+            }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            comboBoxFilter.SelectedIndex = 0;
+            
+            // Show all rows
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                row.Visible = true;
             }
         }
     }
