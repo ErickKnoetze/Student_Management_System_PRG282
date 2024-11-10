@@ -19,8 +19,6 @@ C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Studen
 C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\bin\Debug\net8.0-windows\Student_Management_System_PRG282.runtimeconfig.json
 C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\bin\Debug\net8.0-windows\Student_Management_System_PRG282.dll
 C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\bin\Debug\net8.0-windows\Student_Management_System_PRG282.pdb
-C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\obj\Debug\net8.0-windows\Student_Management_System_PRG282.Form1.resources
-C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\obj\Debug\net8.0-windows\Student_Management_System_PRG282.csproj.GenerateResource.cache
 C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\obj\Debug\net8.0-windows\Student_Management_System_PRG282.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\obj\Debug\net8.0-windows\Student_Management_System_PRG282.AssemblyInfoInputs.cache
 C:\Users\erick\Source\Repos\ErickKnoetze\Student_Management_System_PRG282\Student_Management_System_PRG282\obj\Debug\net8.0-windows\Student_Management_System_PRG282.AssemblyInfo.cs
