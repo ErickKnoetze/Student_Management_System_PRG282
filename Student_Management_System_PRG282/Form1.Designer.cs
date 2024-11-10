@@ -61,15 +61,15 @@ namespace Student_Management_System_PRG282
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            groupSearch = new GroupBox();
+            comboBoxFilter = new ComboBox();
+            txtSearch = new TextBox();
+            labelSearch = new Label();
+            labelFilter = new Label();
+            buttonReset = new Button();
             groupStudentInfo.SuspendLayout();
             groupSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
-            groupSearch = new GroupBox();
-            txtSearch = new TextBox();
-            labelSearch = new Label();
-            comboBoxFilter = new ComboBox();
-            labelFilter = new Label();
-            buttonReset = new Button();
             groupSearch.SuspendLayout();
             SuspendLayout();
             // 
@@ -91,7 +91,7 @@ namespace Student_Management_System_PRG282
             groupStudentInfo.Font = new Font("Segoe UI", 10F);
             groupStudentInfo.Location = new Point(10, 10);
             groupStudentInfo.Name = "groupStudentInfo";
-            groupStudentInfo.Size = new Size(273, 220);
+            groupStudentInfo.Size = new Size(263, 220);
             groupStudentInfo.TabIndex = 0;
             groupStudentInfo.TabStop = false;
             groupStudentInfo.Text = "Student Information";
@@ -189,7 +189,7 @@ namespace Student_Management_System_PRG282
             buttonAdd.FlatAppearance.BorderSize = 0;
             buttonAdd.FlatStyle = FlatStyle.Flat;
             buttonAdd.Font = new Font("Segoe UI", 10F);
-            buttonAdd.Location = new Point(10, 180);
+            buttonAdd.Location = new Point(9, 180);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(74, 34);
             buttonAdd.TabIndex = 10;
@@ -203,7 +203,7 @@ namespace Student_Management_System_PRG282
             buttonUpdate.FlatAppearance.BorderSize = 0;
             buttonUpdate.FlatStyle = FlatStyle.Flat;
             buttonUpdate.Font = new Font("Segoe UI", 10F);
-            buttonUpdate.Location = new Point(90, 180);
+            buttonUpdate.Location = new Point(89, 180);
             buttonUpdate.Name = "buttonUpdate";
             buttonUpdate.Size = new Size(78, 34);
             buttonUpdate.TabIndex = 11;
@@ -217,7 +217,7 @@ namespace Student_Management_System_PRG282
             buttonDelete.FlatAppearance.BorderSize = 0;
             buttonDelete.FlatStyle = FlatStyle.Flat;
             buttonDelete.Font = new Font("Segoe UI", 10F);
-            buttonDelete.Location = new Point(183, 180);
+            buttonDelete.Location = new Point(173, 180);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(80, 34);
             buttonDelete.TabIndex = 12;
@@ -233,7 +233,7 @@ namespace Student_Management_System_PRG282
             groupSummary.Controls.Add(lblAverage);
             groupSummary.Controls.Add(lblTotal);
             groupSummary.Font = new Font("Segoe UI", 10F);
-            groupSummary.Location = new Point(378, 10);
+            groupSummary.Location = new Point(332, 10);
             groupSummary.Name = "groupSummary";
             groupSummary.Size = new Size(308, 161);
             groupSummary.TabIndex = 1;
@@ -358,7 +358,17 @@ namespace Student_Management_System_PRG282
             groupSearch.Size = new Size(177, 161);
             groupSearch.TabIndex = 2;
             groupSearch.TabStop = false;
-            groupSearch.Text = "Search & Filter";
+            groupSearch.Text = "Search Filter";
+            // 
+            // comboBoxFilter
+            // 
+            comboBoxFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilter.FlatStyle = FlatStyle.Flat;
+            comboBoxFilter.Location = new Point(10, 95);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(157, 25);
+            comboBoxFilter.TabIndex = 2;
+            comboBoxFilter.SelectedIndexChanged += comboBoxFilter_SelectedIndexChanged;
             // 
             // txtSearch
             // 
@@ -374,26 +384,16 @@ namespace Student_Management_System_PRG282
             labelSearch.AutoSize = true;
             labelSearch.Location = new Point(10, 23);
             labelSearch.Name = "labelSearch";
-            labelSearch.Size = new Size(100, 19);
+            labelSearch.Size = new Size(89, 19);
             labelSearch.TabIndex = 1;
             labelSearch.Text = "Search by ID:";
-            // 
-            // comboBoxFilter
-            // 
-            comboBoxFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxFilter.FlatStyle = FlatStyle.Flat;
-            comboBoxFilter.Location = new Point(10, 95);
-            comboBoxFilter.Name = "comboBoxFilter";
-            comboBoxFilter.Size = new Size(157, 25);
-            comboBoxFilter.TabIndex = 2;
-            comboBoxFilter.SelectedIndexChanged += comboBoxFilter_SelectedIndexChanged;
             // 
             // labelFilter
             // 
             labelFilter.AutoSize = true;
             labelFilter.Location = new Point(10, 73);
             labelFilter.Name = "labelFilter";
-            labelFilter.Size = new Size(100, 19);
+            labelFilter.Size = new Size(108, 19);
             labelFilter.TabIndex = 3;
             labelFilter.Text = "Filter by Course:";
             // 
