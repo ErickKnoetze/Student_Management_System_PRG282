@@ -17,6 +17,7 @@ namespace Student_Management_System_PRG282
         private System.Windows.Forms.Label labelAge;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.Label labelCourse;
+        private System.Windows.Forms.ComboBox comboBoxCourse;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
@@ -29,6 +30,7 @@ namespace Student_Management_System_PRG282
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupStudentInfo = new GroupBox();
+            comboBoxCourse = new ComboBox();
             txtSurname = new TextBox();
             txtName = new TextBox();
             txtStudentID = new TextBox();
@@ -42,19 +44,17 @@ namespace Student_Management_System_PRG282
             buttonUpdate = new Button();
             buttonDelete = new Button();
             groupSummary = new GroupBox();
+            btnSumamry = new Button();
+            txtAverageAge = new TextBox();
+            txtTotalStudent = new TextBox();
+            lblAverage = new Label();
+            lblTotal = new Label();
             dataGridView = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            btnDisplayAllStudents = new Button();
-            lblTotal = new Label();
-            lblAverage = new Label();
-            txtTotalStudent = new TextBox();
-            txtAverageAge = new TextBox();
-            btnSumamry = new Button();
-            txtCourse = new TextBox();
             groupStudentInfo.SuspendLayout();
             groupSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -62,7 +62,7 @@ namespace Student_Management_System_PRG282
             // 
             // groupStudentInfo
             // 
-            groupStudentInfo.Controls.Add(txtCourse);
+            groupStudentInfo.Controls.Add(comboBoxCourse);
             groupStudentInfo.Controls.Add(txtSurname);
             groupStudentInfo.Controls.Add(txtName);
             groupStudentInfo.Controls.Add(txtStudentID);
@@ -78,17 +78,27 @@ namespace Student_Management_System_PRG282
             groupStudentInfo.Font = new Font("Segoe UI", 10F);
             groupStudentInfo.Location = new Point(10, 10);
             groupStudentInfo.Name = "groupStudentInfo";
-            groupStudentInfo.Size = new Size(475, 220);
+            groupStudentInfo.Size = new Size(273, 220);
             groupStudentInfo.TabIndex = 0;
             groupStudentInfo.TabStop = false;
             groupStudentInfo.Text = "Student Information";
+            // 
+            // comboBoxCourse
+            // 
+            comboBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCourse.FlatStyle = FlatStyle.Flat;
+            comboBoxCourse.Items.AddRange(new object[] { "Bachelor of Computing", "Bachelor of Information Technology", "Part-Time Bachelor of Information Technology", "Diploma in Information Technology", "Diploma for De af Students", "National Certificate: IT (Systems Development)", "Certificate: IT (Database Development)" });
+            comboBoxCourse.Location = new Point(100, 142);
+            comboBoxCourse.Name = "comboBoxCourse";
+            comboBoxCourse.Size = new Size(140, 25);
+            comboBoxCourse.TabIndex = 4;
             // 
             // txtSurname
             // 
             txtSurname.BorderStyle = BorderStyle.FixedSingle;
             txtSurname.Location = new Point(100, 82);
             txtSurname.Name = "txtSurname";
-            txtSurname.Size = new Size(140, 30);
+            txtSurname.Size = new Size(140, 25);
             txtSurname.TabIndex = 0;
             // 
             // txtName
@@ -96,7 +106,7 @@ namespace Student_Management_System_PRG282
             txtName.BorderStyle = BorderStyle.FixedSingle;
             txtName.Location = new Point(100, 52);
             txtName.Name = "txtName";
-            txtName.Size = new Size(140, 30);
+            txtName.Size = new Size(140, 25);
             txtName.TabIndex = 1;
             // 
             // txtStudentID
@@ -104,7 +114,7 @@ namespace Student_Management_System_PRG282
             txtStudentID.BorderStyle = BorderStyle.FixedSingle;
             txtStudentID.Location = new Point(100, 22);
             txtStudentID.Name = "txtStudentID";
-            txtStudentID.Size = new Size(140, 30);
+            txtStudentID.Size = new Size(140, 25);
             txtStudentID.TabIndex = 2;
             // 
             // txtAge
@@ -112,7 +122,7 @@ namespace Student_Management_System_PRG282
             txtAge.BorderStyle = BorderStyle.FixedSingle;
             txtAge.Location = new Point(100, 112);
             txtAge.Name = "txtAge";
-            txtAge.Size = new Size(140, 30);
+            txtAge.Size = new Size(140, 25);
             txtAge.TabIndex = 3;
             // 
             // labelStudentID
@@ -210,12 +220,54 @@ namespace Student_Management_System_PRG282
             groupSummary.Controls.Add(lblAverage);
             groupSummary.Controls.Add(lblTotal);
             groupSummary.Font = new Font("Segoe UI", 10F);
-            groupSummary.Location = new Point(577, 22);
+            groupSummary.Location = new Point(378, 10);
             groupSummary.Name = "groupSummary";
             groupSummary.Size = new Size(308, 161);
             groupSummary.TabIndex = 1;
             groupSummary.TabStop = false;
             groupSummary.Text = "Summary";
+            // 
+            // btnSumamry
+            // 
+            btnSumamry.Location = new Point(101, 103);
+            btnSumamry.Name = "btnSumamry";
+            btnSumamry.Size = new Size(107, 44);
+            btnSumamry.TabIndex = 6;
+            btnSumamry.Text = "Summary";
+            btnSumamry.UseVisualStyleBackColor = true;
+            btnSumamry.Click += btnSumamry_Click;
+            // 
+            // txtAverageAge
+            // 
+            txtAverageAge.Location = new Point(145, 55);
+            txtAverageAge.Name = "txtAverageAge";
+            txtAverageAge.Size = new Size(125, 25);
+            txtAverageAge.TabIndex = 5;
+            // 
+            // txtTotalStudent
+            // 
+            txtTotalStudent.Location = new Point(145, 22);
+            txtTotalStudent.Name = "txtTotalStudent";
+            txtTotalStudent.Size = new Size(125, 25);
+            txtTotalStudent.TabIndex = 4;
+            // 
+            // lblAverage
+            // 
+            lblAverage.AutoSize = true;
+            lblAverage.Location = new Point(13, 58);
+            lblAverage.Name = "lblAverage";
+            lblAverage.Size = new Size(94, 19);
+            lblAverage.TabIndex = 3;
+            lblAverage.Text = "Average Age: ";
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Location = new Point(13, 26);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(103, 19);
+            lblTotal.TabIndex = 2;
+            lblTotal.Text = "Total Students: ";
             // 
             // dataGridView
             // 
@@ -244,10 +296,10 @@ namespace Student_Management_System_PRG282
             dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView.EnableHeadersVisualStyles = false;
             dataGridView.GridColor = Color.LightGray;
-            dataGridView.Location = new Point(8, 288);
+            dataGridView.Location = new Point(8, 236);
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(1165, 350);
+            dataGridView.Size = new Size(861, 310);
             dataGridView.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
@@ -280,70 +332,9 @@ namespace Student_Management_System_PRG282
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // btnDisplayAllStudents
-            // 
-            btnDisplayAllStudents.Location = new Point(298, 190);
-            btnDisplayAllStudents.Name = "btnDisplayAllStudents";
-            btnDisplayAllStudents.Size = new Size(174, 34);
-            btnDisplayAllStudents.TabIndex = 6;
-            btnDisplayAllStudents.Text = "View all Students";
-            btnDisplayAllStudents.UseVisualStyleBackColor = true;
-            btnDisplayAllStudents.Click += btnDisplayAllStudents_Click;
-            // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(13, 26);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(126, 23);
-            lblTotal.TabIndex = 2;
-            lblTotal.Text = "Total Students: ";
-            // 
-            // lblAverage
-            // 
-            lblAverage.AutoSize = true;
-            lblAverage.Location = new Point(13, 58);
-            lblAverage.Name = "lblAverage";
-            lblAverage.Size = new Size(116, 23);
-            lblAverage.TabIndex = 3;
-            lblAverage.Text = "Average Age: ";
-            // 
-            // txtTotalStudent
-            // 
-            txtTotalStudent.Location = new Point(145, 13);
-            txtTotalStudent.Name = "txtTotalStudent";
-            txtTotalStudent.Size = new Size(125, 30);
-            txtTotalStudent.TabIndex = 4;
-            // 
-            // txtAverageAge
-            // 
-            txtAverageAge.Location = new Point(145, 55);
-            txtAverageAge.Name = "txtAverageAge";
-            txtAverageAge.Size = new Size(125, 30);
-            txtAverageAge.TabIndex = 5;
-            // 
-            // btnSumamry
-            // 
-            btnSumamry.Location = new Point(101, 103);
-            btnSumamry.Name = "btnSumamry";
-            btnSumamry.Size = new Size(107, 44);
-            btnSumamry.TabIndex = 6;
-            btnSumamry.Text = "Summary";
-            btnSumamry.UseVisualStyleBackColor = true;
-            btnSumamry.Click += btnSumamry_Click;
-            // 
-            // txtCourse
-            // 
-            txtCourse.BorderStyle = BorderStyle.FixedSingle;
-            txtCourse.Location = new Point(100, 141);
-            txtCourse.Name = "txtCourse";
-            txtCourse.Size = new Size(140, 30);
-            txtCourse.TabIndex = 13;
-            // 
             // Form1
             // 
-            ClientSize = new Size(1185, 650);
-            Controls.Add(btnDisplayAllStudents);
+            ClientSize = new Size(881, 558);
             Controls.Add(groupStudentInfo);
             Controls.Add(groupSummary);
             Controls.Add(dataGridView);
@@ -362,12 +353,11 @@ namespace Student_Management_System_PRG282
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private Button btnDisplayAllStudents;
         private Label lblAverage;
         private Label lblTotal;
         private TextBox txtAverageAge;
         private TextBox txtTotalStudent;
         private Button btnSumamry;
-        private TextBox txtCourse;
+
     }
 }

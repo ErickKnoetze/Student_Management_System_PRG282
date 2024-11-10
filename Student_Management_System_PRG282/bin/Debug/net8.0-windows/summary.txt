@@ -1,8 +1,8 @@
 Summary Report
 ===============
 Total Students: 2
-Average Age: 20.00
+Average Age: 22.50
 
 Students per Course:
-lpr: 1
-Prg281: 1
+Bachelor of Computing: 1
+Diploma in Information Technology: 1

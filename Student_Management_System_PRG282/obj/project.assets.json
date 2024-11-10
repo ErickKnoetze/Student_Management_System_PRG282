@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Carmen Walliser\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\erick\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Carmen Walliser\\OneDrive - belgiumcampus.ac.za\\Belguim Campus\\Student_Management_System_PRG282-main\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
+      "projectUniqueName": "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
       "projectName": "Student_Management_System_PRG282",
-      "projectPath": "C:\\Users\\Carmen Walliser\\OneDrive - belgiumcampus.ac.za\\Belguim Campus\\Student_Management_System_PRG282-main\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
-      "packagesPath": "C:\\Users\\Carmen Walliser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Carmen Walliser\\OneDrive - belgiumcampus.ac.za\\Belguim Campus\\Student_Management_System_PRG282-main\\Student_Management_System_PRG282\\obj\\",
+      "projectPath": "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
+      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Carmen Walliser\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -74,7 +69,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

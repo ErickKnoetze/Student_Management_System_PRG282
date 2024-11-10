@@ -1,2 +1,2 @@
-600169,Carmen,wallisher,20,lpr
-577842,Pj,Human,20,Prg281
+600984,Erick,Knoetze,23,Bachelor of Computing
+600958,James,Pienaar,22,Diploma in Information Technology
