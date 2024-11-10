@@ -42,5 +42,5 @@ This is a C# Windows Forms application designed to manage student records effici
 ## **Installation Instructions**
 1. **Clone the Repository**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/ErickKnoetze/Student_Management_System_PRG282.git>
    cd Student-Management-System
