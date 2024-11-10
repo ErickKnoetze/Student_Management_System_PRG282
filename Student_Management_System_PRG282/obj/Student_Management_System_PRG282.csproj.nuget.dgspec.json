@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\source\\repos\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj": {}
+    "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\source\\repos\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj": {
+    "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\source\\repos\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
+        "projectUniqueName": "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
         "projectName": "Student_Management_System_PRG282",
-        "projectPath": "C:\\Users\\erick\\source\\repos\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
+        "projectPath": "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\Student_Management_System_PRG282.csproj",
         "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\source\\repos\\Student_Management_System_PRG282\\obj\\",
+        "outputPath": "C:\\Users\\erick\\source\\repos\\ErickKnoetze\\Student_Management_System_PRG282\\Student_Management_System_PRG282\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",

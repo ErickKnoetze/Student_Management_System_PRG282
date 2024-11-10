@@ -6,34 +6,34 @@ namespace Student_Management_System_PRG282
 {
     public partial class Form1 : Form
     {
-        private System.Windows.Forms.GroupBox groupStudentInfo;
-        private System.Windows.Forms.GroupBox groupSummary;
-        private System.Windows.Forms.Label labelStudentID;
-        private System.Windows.Forms.TextBox txtStudentID;
-        private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label labelSurname;
-        private System.Windows.Forms.TextBox txtSurname;
-        private System.Windows.Forms.Label labelAge;
-        private System.Windows.Forms.TextBox txtAge;
-        private System.Windows.Forms.Label labelCourse;
-        private System.Windows.Forms.ComboBox comboBoxCourse;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Label labelTotalStudents;
-        private System.Windows.Forms.Label labelAverageAge;
-        private System.Windows.Forms.TextBox textBoxFilter;
-        private System.Windows.Forms.ComboBox comboBoxFilterCourses;
-        private System.Windows.Forms.Button buttonApplyFilter;
-        private System.Windows.Forms.DataGridView dataGridView;
+        public System.Windows.Forms.GroupBox groupStudentInfo;
+        public System.Windows.Forms.GroupBox groupSummary;
+        public System.Windows.Forms.Label labelStudentID;
+        public System.Windows.Forms.TextBox txtStudentID;
+        public System.Windows.Forms.Label labelName;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.Label labelSurname;
+        public System.Windows.Forms.TextBox txtSurname;
+        public System.Windows.Forms.Label labelAge;
+        public System.Windows.Forms.TextBox txtAge;
+        public System.Windows.Forms.Label labelCourse;
+        public System.Windows.Forms.ComboBox comboBoxCourse;
+        public System.Windows.Forms.Button buttonAdd;
+        public System.Windows.Forms.Button buttonUpdate;
+        public System.Windows.Forms.Button buttonDelete;
+        public System.Windows.Forms.Label labelTotalStudents;
+        public System.Windows.Forms.Label labelAverageAge;
+        public System.Windows.Forms.TextBox textBoxFilter;
+        public System.Windows.Forms.ComboBox comboBoxFilterCourses;
+        public System.Windows.Forms.Button buttonApplyFilter;
+        public System.Windows.Forms.DataGridView dataGridView;
 
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupStudentInfo = new GroupBox();
             txtSurname = new TextBox();
             txtName = new TextBox();
@@ -111,6 +111,7 @@ namespace Student_Management_System_PRG282
             txtStudentID.Name = "txtStudentID";
             txtStudentID.Size = new Size(140, 25);
             txtStudentID.TabIndex = 2;
+            txtStudentID.TextChanged += txtStudentID_TextChanged;
             // 
             // txtAge
             // 
@@ -124,7 +125,8 @@ namespace Student_Management_System_PRG282
             // 
             comboBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCourse.FlatStyle = FlatStyle.Flat;
-            comboBoxCourse.Items.AddRange(new object[] { "Course 1", "Course 2", "Course 3" });
+            comboBoxCourse.Items.AddRange(new object[] { "Bachelor of Computing", "Bachelor of Information Technology", "Part-Time Bachelor of Information Technology",
+                "Diploma in Information Technology", "Diploma for De af Students", "National Certificate: IT (Systems Development)", "Certificate: IT (Database Development)" });
             comboBoxCourse.Location = new Point(100, 142);
             comboBoxCourse.Name = "comboBoxCourse";
             comboBoxCourse.Size = new Size(140, 25);
@@ -259,7 +261,8 @@ namespace Student_Management_System_PRG282
             // 
             comboBoxFilterCourses.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFilterCourses.FlatStyle = FlatStyle.Flat;
-            comboBoxFilterCourses.Items.AddRange(new object[] { "All Courses", "Course 1", "Course 2", "Course 3" });
+            comboBoxFilterCourses.Items.AddRange(new object[] { "All Courses", "Bachelor of Computing", "Bachelor of Information Technology", "Part-Time Bachelor of Information Technology",
+                "Diploma in Information Technology", "Diploma for Deaf Students", "National Certificate: IT (Systems Development)", "Certificate: IT (Database Development)"});
             comboBoxFilterCourses.Location = new Point(130, 240);
             comboBoxFilterCourses.Name = "comboBoxFilterCourses";
             comboBoxFilterCourses.Size = new Size(115, 23);
@@ -275,28 +278,28 @@ namespace Student_Management_System_PRG282
             // 
             // dataGridView
             // 
-            dataGridViewCellStyle4.BackColor = Color.LightGray;
-            dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.BackgroundColor = Color.White;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView.EnableHeadersVisualStyles = false;
             dataGridView.GridColor = Color.LightGray;
             dataGridView.Location = new Point(10, 270);
@@ -346,12 +349,13 @@ namespace Student_Management_System_PRG282
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
+            txtName.Text = "";
         }
 
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
