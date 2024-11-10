@@ -18,7 +18,6 @@ namespace Student_Management_System_PRG282
             LoadFilterComboBox(); // Populate filter options for courses
         }
 
-        // Clears the DataGridView and reloads it with current student data
         private void LoadStudents()
         {
             dataGridView.Rows.Clear();
@@ -40,10 +39,6 @@ namespace Student_Management_System_PRG282
             comboBoxCourse.SelectedIndex = -1;
         }
 
-        private void btnDisplayFromTextFile_Click(object sender, EventArgs e)
-        {
-            // Placeholder for a function to display data from a text file (if needed)
-        }
 
         // Adds a new student entry after validating input fields
         private void buttonAdd_Click(object sender, EventArgs e)

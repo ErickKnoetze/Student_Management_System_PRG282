@@ -1,2 +1,3 @@
 600984,Erick,Knoetze,23,Bachelor of Computing
 600958,James,Pienaar,22,Diploma in Information Technology
+600965,Gerhard,Polse,20,National Certificate: IT (Systems Development)
