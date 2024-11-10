@@ -1,0 +1,8 @@
+Summary Report
+===============
+Total Students: 2
+Average Age: 22.50
+
+Students per Course:
+Bachelor of Computing: 1
+Diploma in Information Technology: 1

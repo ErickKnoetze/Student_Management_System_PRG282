@@ -6,27 +6,28 @@ namespace Student_Management_System_PRG282
 {
     public partial class Form1 : Form
     {
-        public System.Windows.Forms.GroupBox groupStudentInfo;
-        public System.Windows.Forms.GroupBox groupSummary;
-        public System.Windows.Forms.Label labelStudentID;
-        public System.Windows.Forms.TextBox txtStudentID;
-        public System.Windows.Forms.Label labelName;
-        public System.Windows.Forms.TextBox txtName;
-        public System.Windows.Forms.Label labelSurname;
-        public System.Windows.Forms.TextBox txtSurname;
-        public System.Windows.Forms.Label labelAge;
-        public System.Windows.Forms.TextBox txtAge;
-        public System.Windows.Forms.Label labelCourse;
-        public System.Windows.Forms.ComboBox comboBoxCourse;
-        public System.Windows.Forms.Button buttonAdd;
-        public System.Windows.Forms.Button buttonUpdate;
-        public System.Windows.Forms.Button buttonDelete;
-        public System.Windows.Forms.Label labelTotalStudents;
-        public System.Windows.Forms.Label labelAverageAge;
-        public System.Windows.Forms.TextBox textBoxFilter;
-        public System.Windows.Forms.ComboBox comboBoxFilterCourses;
-        public System.Windows.Forms.Button buttonApplyFilter;
-        public System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.GroupBox groupStudentInfo;
+        private System.Windows.Forms.GroupBox groupSummary;
+        private System.Windows.Forms.Label labelStudentID;
+        private System.Windows.Forms.TextBox txtStudentID;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label labelSurname;
+        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.Label labelAge;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.Label labelCourse;
+        private System.Windows.Forms.ComboBox comboBoxCourse;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.GroupBox groupSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.ComboBox comboBoxFilter;
+        private System.Windows.Forms.Label labelFilter;
+        private System.Windows.Forms.Button buttonReset;
 
 
         private void InitializeComponent()
@@ -35,11 +36,11 @@ namespace Student_Management_System_PRG282
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupStudentInfo = new GroupBox();
+            comboBoxCourse = new ComboBox();
             txtSurname = new TextBox();
             txtName = new TextBox();
             txtStudentID = new TextBox();
             txtAge = new TextBox();
-            comboBoxCourse = new ComboBox();
             labelStudentID = new Label();
             labelName = new Label();
             labelSurname = new Label();
@@ -49,29 +50,36 @@ namespace Student_Management_System_PRG282
             buttonUpdate = new Button();
             buttonDelete = new Button();
             groupSummary = new GroupBox();
-            labelTotalStudents = new Label();
-            labelAverageAge = new Label();
-            textBoxFilter = new TextBox();
-            comboBoxFilterCourses = new ComboBox();
-            buttonApplyFilter = new Button();
+            btnSumamry = new Button();
+            txtAverageAge = new TextBox();
+            txtTotalStudent = new TextBox();
+            lblAverage = new Label();
+            lblTotal = new Label();
             dataGridView = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            groupSearch = new GroupBox();
+            comboBoxFilter = new ComboBox();
+            txtSearch = new TextBox();
+            labelSearch = new Label();
+            labelFilter = new Label();
+            buttonReset = new Button();
             groupStudentInfo.SuspendLayout();
             groupSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            groupSearch.SuspendLayout();
             SuspendLayout();
             // 
             // groupStudentInfo
             // 
+            groupStudentInfo.Controls.Add(comboBoxCourse);
             groupStudentInfo.Controls.Add(txtSurname);
             groupStudentInfo.Controls.Add(txtName);
             groupStudentInfo.Controls.Add(txtStudentID);
             groupStudentInfo.Controls.Add(txtAge);
-            groupStudentInfo.Controls.Add(comboBoxCourse);
             groupStudentInfo.Controls.Add(labelStudentID);
             groupStudentInfo.Controls.Add(labelName);
             groupStudentInfo.Controls.Add(labelSurname);
@@ -83,10 +91,20 @@ namespace Student_Management_System_PRG282
             groupStudentInfo.Font = new Font("Segoe UI", 10F);
             groupStudentInfo.Location = new Point(10, 10);
             groupStudentInfo.Name = "groupStudentInfo";
-            groupStudentInfo.Size = new Size(258, 220);
+            groupStudentInfo.Size = new Size(263, 220);
             groupStudentInfo.TabIndex = 0;
             groupStudentInfo.TabStop = false;
             groupStudentInfo.Text = "Student Information";
+            // 
+            // comboBoxCourse
+            // 
+            comboBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCourse.FlatStyle = FlatStyle.Flat;
+            comboBoxCourse.Items.AddRange(new object[] { "Bachelor of Computing", "Bachelor of Information Technology", "Part-Time Bachelor of Information Technology", "Diploma in Information Technology", "Diploma for De af Students", "National Certificate: IT (Systems Development)", "Certificate: IT (Database Development)" });
+            comboBoxCourse.Location = new Point(100, 142);
+            comboBoxCourse.Name = "comboBoxCourse";
+            comboBoxCourse.Size = new Size(140, 25);
+            comboBoxCourse.TabIndex = 4;
             // 
             // txtSurname
             // 
@@ -111,7 +129,6 @@ namespace Student_Management_System_PRG282
             txtStudentID.Name = "txtStudentID";
             txtStudentID.Size = new Size(140, 25);
             txtStudentID.TabIndex = 2;
-            txtStudentID.TextChanged += txtStudentID_TextChanged;
             // 
             // txtAge
             // 
@@ -120,17 +137,6 @@ namespace Student_Management_System_PRG282
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(140, 25);
             txtAge.TabIndex = 3;
-            // 
-            // comboBoxCourse
-            // 
-            comboBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxCourse.FlatStyle = FlatStyle.Flat;
-            comboBoxCourse.Items.AddRange(new object[] { "Bachelor of Computing", "Bachelor of Information Technology", "Part-Time Bachelor of Information Technology",
-                "Diploma in Information Technology", "Diploma for De af Students", "National Certificate: IT (Systems Development)", "Certificate: IT (Database Development)" });
-            comboBoxCourse.Location = new Point(100, 142);
-            comboBoxCourse.Name = "comboBoxCourse";
-            comboBoxCourse.Size = new Size(140, 25);
-            comboBoxCourse.TabIndex = 4;
             // 
             // labelStudentID
             // 
@@ -183,9 +189,9 @@ namespace Student_Management_System_PRG282
             buttonAdd.FlatAppearance.BorderSize = 0;
             buttonAdd.FlatStyle = FlatStyle.Flat;
             buttonAdd.Font = new Font("Segoe UI", 10F);
-            buttonAdd.Location = new Point(10, 180);
+            buttonAdd.Location = new Point(9, 180);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(65, 26);
+            buttonAdd.Size = new Size(74, 34);
             buttonAdd.TabIndex = 10;
             buttonAdd.Text = "Add";
             buttonAdd.UseVisualStyleBackColor = false;
@@ -197,9 +203,9 @@ namespace Student_Management_System_PRG282
             buttonUpdate.FlatAppearance.BorderSize = 0;
             buttonUpdate.FlatStyle = FlatStyle.Flat;
             buttonUpdate.Font = new Font("Segoe UI", 10F);
-            buttonUpdate.Location = new Point(85, 180);
+            buttonUpdate.Location = new Point(89, 180);
             buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(65, 26);
+            buttonUpdate.Size = new Size(78, 34);
             buttonUpdate.TabIndex = 11;
             buttonUpdate.Text = "Update";
             buttonUpdate.UseVisualStyleBackColor = false;
@@ -211,9 +217,9 @@ namespace Student_Management_System_PRG282
             buttonDelete.FlatAppearance.BorderSize = 0;
             buttonDelete.FlatStyle = FlatStyle.Flat;
             buttonDelete.Font = new Font("Segoe UI", 10F);
-            buttonDelete.Location = new Point(160, 180);
+            buttonDelete.Location = new Point(173, 180);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(65, 26);
+            buttonDelete.Size = new Size(80, 34);
             buttonDelete.TabIndex = 12;
             buttonDelete.Text = "Delete";
             buttonDelete.UseVisualStyleBackColor = false;
@@ -221,60 +227,60 @@ namespace Student_Management_System_PRG282
             // 
             // groupSummary
             // 
-            groupSummary.Controls.Add(labelTotalStudents);
-            groupSummary.Controls.Add(labelAverageAge);
+            groupSummary.Controls.Add(btnSumamry);
+            groupSummary.Controls.Add(txtAverageAge);
+            groupSummary.Controls.Add(txtTotalStudent);
+            groupSummary.Controls.Add(lblAverage);
+            groupSummary.Controls.Add(lblTotal);
             groupSummary.Font = new Font("Segoe UI", 10F);
-            groupSummary.Location = new Point(290, 15);
+            groupSummary.Location = new Point(332, 10);
             groupSummary.Name = "groupSummary";
-            groupSummary.Size = new Size(143, 70);
+            groupSummary.Size = new Size(308, 161);
             groupSummary.TabIndex = 1;
             groupSummary.TabStop = false;
             groupSummary.Text = "Summary";
             // 
-            // labelTotalStudents
+            // btnSumamry
             // 
-            labelTotalStudents.Font = new Font("Segoe UI", 10F);
-            labelTotalStudents.Location = new Point(6, 20);
-            labelTotalStudents.Name = "labelTotalStudents";
-            labelTotalStudents.Size = new Size(100, 23);
-            labelTotalStudents.TabIndex = 0;
-            labelTotalStudents.Text = "Total Students: 0";
+            btnSumamry.Location = new Point(101, 103);
+            btnSumamry.Name = "btnSumamry";
+            btnSumamry.Size = new Size(107, 44);
+            btnSumamry.TabIndex = 6;
+            btnSumamry.Text = "Summary";
+            btnSumamry.UseVisualStyleBackColor = true;
+            btnSumamry.Click += btnSumamry_Click;
             // 
-            // labelAverageAge
+            // txtAverageAge
             // 
-            labelAverageAge.Font = new Font("Segoe UI", 10F);
-            labelAverageAge.Location = new Point(6, 43);
-            labelAverageAge.Name = "labelAverageAge";
-            labelAverageAge.Size = new Size(100, 23);
-            labelAverageAge.TabIndex = 1;
-            labelAverageAge.Text = "Average Age: 0";
+            txtAverageAge.Location = new Point(145, 55);
+            txtAverageAge.Name = "txtAverageAge";
+            txtAverageAge.Size = new Size(125, 25);
+            txtAverageAge.TabIndex = 5;
             // 
-            // textBoxFilter
+            // txtTotalStudent
             // 
-            textBoxFilter.BorderStyle = BorderStyle.FixedSingle;
-            textBoxFilter.Location = new Point(10, 240);
-            textBoxFilter.Name = "textBoxFilter";
-            textBoxFilter.Size = new Size(115, 23);
-            textBoxFilter.TabIndex = 2;
+            txtTotalStudent.Location = new Point(145, 22);
+            txtTotalStudent.Name = "txtTotalStudent";
+            txtTotalStudent.Size = new Size(125, 25);
+            txtTotalStudent.TabIndex = 4;
             // 
-            // comboBoxFilterCourses
+            // lblAverage
             // 
-            comboBoxFilterCourses.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxFilterCourses.FlatStyle = FlatStyle.Flat;
-            comboBoxFilterCourses.Items.AddRange(new object[] { "All Courses", "Bachelor of Computing", "Bachelor of Information Technology", "Part-Time Bachelor of Information Technology",
-                "Diploma in Information Technology", "Diploma for Deaf Students", "National Certificate: IT (Systems Development)", "Certificate: IT (Database Development)"});
-            comboBoxFilterCourses.Location = new Point(130, 240);
-            comboBoxFilterCourses.Name = "comboBoxFilterCourses";
-            comboBoxFilterCourses.Size = new Size(115, 23);
-            comboBoxFilterCourses.TabIndex = 3;
+            lblAverage.AutoSize = true;
+            lblAverage.Location = new Point(13, 58);
+            lblAverage.Name = "lblAverage";
+            lblAverage.Size = new Size(94, 19);
+            lblAverage.TabIndex = 3;
+            lblAverage.Text = "Average Age: ";
             // 
-            // buttonApplyFilter
+            // lblTotal
             // 
-            buttonApplyFilter.Location = new Point(250, 240);
-            buttonApplyFilter.Name = "buttonApplyFilter";
-            buttonApplyFilter.Size = new Size(85, 23);
-            buttonApplyFilter.TabIndex = 4;
-            buttonApplyFilter.Text = "Apply Filter";
+            lblTotal.AutoSize = true;
+            lblTotal.Location = new Point(13, 26);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(103, 19);
+            lblTotal.TabIndex = 2;
+            lblTotal.Text = "Total Students: ";
             // 
             // dataGridView
             // 
@@ -291,6 +297,7 @@ namespace Student_Management_System_PRG282
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView.ColumnHeadersHeight = 29;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -302,60 +309,136 @@ namespace Student_Management_System_PRG282
             dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView.EnableHeadersVisualStyles = false;
             dataGridView.GridColor = Color.LightGray;
-            dataGridView.Location = new Point(10, 270);
+            dataGridView.Location = new Point(8, 236);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(580, 300);
+            dataGridView.RowHeadersWidth = 51;
+            dataGridView.Size = new Size(861, 310);
             dataGridView.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.HeaderText = "Student ID";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.HeaderText = "Name";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.HeaderText = "Surname";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.HeaderText = "Age";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
             dataGridViewTextBoxColumn5.HeaderText = "Course";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // groupSearch
+            // 
+            groupSearch.Controls.Add(comboBoxFilter);
+            groupSearch.Controls.Add(txtSearch);
+            groupSearch.Controls.Add(labelSearch);
+            groupSearch.Controls.Add(labelFilter);
+            groupSearch.Controls.Add(buttonReset);
+            groupSearch.Font = new Font("Segoe UI", 10F);
+            groupSearch.Location = new Point(692, 10);
+            groupSearch.Name = "groupSearch";
+            groupSearch.Size = new Size(177, 161);
+            groupSearch.TabIndex = 2;
+            groupSearch.TabStop = false;
+            groupSearch.Text = "Search Filter";
+            // 
+            // comboBoxFilter
+            // 
+            comboBoxFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilter.FlatStyle = FlatStyle.Flat;
+            comboBoxFilter.Location = new Point(10, 95);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(157, 25);
+            comboBoxFilter.TabIndex = 2;
+            comboBoxFilter.SelectedIndexChanged += comboBoxFilter_SelectedIndexChanged;
+            // 
+            // txtSearch
+            // 
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Location = new Point(10, 45);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(157, 25);
+            txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // labelSearch
+            // 
+            labelSearch.AutoSize = true;
+            labelSearch.Location = new Point(10, 23);
+            labelSearch.Name = "labelSearch";
+            labelSearch.Size = new Size(89, 19);
+            labelSearch.TabIndex = 1;
+            labelSearch.Text = "Search by ID:";
+            // 
+            // labelFilter
+            // 
+            labelFilter.AutoSize = true;
+            labelFilter.Location = new Point(10, 73);
+            labelFilter.Name = "labelFilter";
+            labelFilter.Size = new Size(108, 19);
+            labelFilter.TabIndex = 3;
+            labelFilter.Text = "Filter by Course:";
+            // 
+            // buttonReset
+            // 
+            buttonReset.BackColor = Color.LightGray;
+            buttonReset.FlatAppearance.BorderSize = 0;
+            buttonReset.FlatStyle = FlatStyle.Flat;
+            buttonReset.Location = new Point(10, 125);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(157, 30);
+            buttonReset.TabIndex = 4;
+            buttonReset.Text = "Reset";
+            buttonReset.UseVisualStyleBackColor = false;
+            buttonReset.Click += buttonReset_Click;
             // 
             // Form1
             // 
-            ClientSize = new Size(600, 600);
+            ClientSize = new Size(881, 558);
             Controls.Add(groupStudentInfo);
             Controls.Add(groupSummary);
-            Controls.Add(textBoxFilter);
-            Controls.Add(comboBoxFilterCourses);
-            Controls.Add(buttonApplyFilter);
             Controls.Add(dataGridView);
+            Controls.Add(groupSearch);
             Name = "Form1";
             Text = "Student Management System";
             groupStudentInfo.ResumeLayout(false);
             groupStudentInfo.PerformLayout();
             groupSummary.ResumeLayout(false);
+            groupSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            groupSearch.ResumeLayout(false);
+            groupSearch.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
-            txtName.Text = "";
         }
 
-        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        public DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private Label lblAverage;
+        private Label lblTotal;
+        private TextBox txtAverageAge;
+        private TextBox txtTotalStudent;
+        private Button btnSumamry;
+
     }
 }

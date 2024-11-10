@@ -1,1 +1,4 @@
 .vs/
+
+// The .gitignore file excludes unnecessary, sensitive, and environment-specific files from version control, 
+// keeping the repository clean, secure, and efficient by only tracking essential files.

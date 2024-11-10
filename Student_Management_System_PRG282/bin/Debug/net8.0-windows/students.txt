@@ -1,1 +1,2 @@
-600984,Erick,Knoetze,23,Course 1
+600984,Erick,Knoetze,23,Bachelor of Computing
+600958,James,Pienaar,22,Diploma in Information Technology
