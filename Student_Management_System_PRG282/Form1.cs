@@ -1,121 +1,155 @@
+using Student_Management_System_PRG282.DataLayer;
 using System.Xml.Linq;
+using System.IO;
 
 namespace Student_Management_System_PRG282
 {
     public partial class Form1 : Form
     {
+        DataHandler handler = new DataHandler();
+
         public Form1()
         {
             InitializeComponent();
-
         }
 
-        private void InitializeDataGridView()
+        private void btnDisplayFromTextFile_Click(object sender, EventArgs e)
         {
-            // Add columns to the DataGridView if they aren't already added
-            if (dataGridView.Columns.Count == 0)
+           
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            string studentID = txtStudentID.Text;
+            string firstName = txtName.Text;
+            string lastName = txtSurname.Text;
+            string age = txtAge.Text;
+            string course = txtCourse.Text;
+
+            if (string.IsNullOrWhiteSpace(studentID) ||
+                string.IsNullOrWhiteSpace(firstName) ||
+                string.IsNullOrWhiteSpace(lastName) ||
+                string.IsNullOrWhiteSpace(age) ||
+                string.IsNullOrWhiteSpace(course))
             {
-                dataGridView.Columns.Add("StudentID", "Student ID");
-                dataGridView.Columns.Add("Name", "Name");
-                dataGridView.Columns.Add("Surname", "Surname");
-                dataGridView.Columns.Add("Age", "Age");
-                dataGridView.Columns.Add("Course", "Course");
+                MessageBox.Show("Please fill in all fields.");
+                return;
             }
-        }
 
+            if (!int.TryParse(age, out int Age))
+            {
+                MessageBox.Show("Please enter a valid numeric age.");
+                return;
+            }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
+            if (handler.StudentExists(studentID))
+            {
+                MessageBox.Show("A student with this ID already exists.");
+                return;
+            }
+
             try
             {
-                DataHandeler dataHandler = new DataHandeler();
-                
-                // Validate age input
-                if (!int.TryParse(txtAge.Text, out int age))
-                {
-                    MessageBox.Show("Please enter a valid age", "Error", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                handler.AddStudent(studentID, firstName, lastName, Age, course);
+                MessageBox.Show("Student added successfully!");
 
-                Student newStudent = dataHandler.CreateNewStudent(
-                    txtStudentID.Text,
-                    txtName.Text,
-                    txtSurname.Text,
-                    age,
-                    comboBoxCourse.Text
-                );
-
-                // Save the student
-                dataHandler.SaveStudent(newStudent);
-
-                MessageBox.Show("Student added successfully!", "Success", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Clear the form after successful addition
-                ClearForm();
+                txtStudentID.Clear();
+                txtName.Clear();
+                txtSurname.Clear();
+                txtAge.Clear();
+                txtCourse.Clear();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding student: {ex.Message}", "Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
-        }
-
-        // Helper method to clear the form
-        private void ClearForm()
-        {
-            txtStudentID.Clear();
-            txtName.Clear();
-            txtSurname.Clear();
-            txtAge.Clear();
-            comboBoxCourse.SelectedIndex = -1;
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            string studentID = txtStudentID.Text;
+            string firstName = txtName.Text;
+            string lastName = txtSurname.Text;
+            string ageText = txtAge.Text;
+            string course = txtCourse.Text;
 
+            if (string.IsNullOrWhiteSpace(studentID) || string.IsNullOrWhiteSpace(firstName) ||
+                string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(ageText) || string.IsNullOrWhiteSpace(course))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            if (!int.TryParse(ageText, out int age))
+            {
+                MessageBox.Show("Please enter a valid numeric age.");
+                return;
+            }
+
+            try
+            {
+                handler.UpdateStudent(studentID, firstName, lastName, age, course);
+                MessageBox.Show("Student updated successfully!");
+                btnDisplayAllStudents_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while updating the student: " + ex.Message);
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            string studentID = txtStudentID.Text;
 
+            if (string.IsNullOrWhiteSpace(studentID))
+            {
+                MessageBox.Show("Please enter a Student ID.");
+                return;
+            }
+
+            try
+            {
+                handler.RemoveStudent(studentID);
+                MessageBox.Show("Student deleted successfully!");
+                btnDisplayAllStudents_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while deleting the student: " + ex.Message);
+            }
         }
-
-        private void txtStudentID_TextChanged(object sender, EventArgs e)
+     
+        private void btnDisplayAllStudents_Click(object sender, EventArgs e)
         {
+            dataGridView.Rows.Clear();
+            var students = handler.ViewStudents();
 
+            foreach (var student in students)
+            {
+                if (student.Length == 5)
+                {
+                    dataGridView.Rows.Add(student[0], student[1], student[2], student[3], student[4]);
+                }
+            }
         }
-
-        public string StudentID
+        // Generate and display summary when the Summary button is clicked
+        private void btnSumamry_Click(object sender, EventArgs e)
         {
-            get { return txtStudentID.Text; }
-            set { txtStudentID.Text = value; }
-        }
+            try
+            {
+                var (totalStudents, averageAge) = handler.GenerateSummary();
 
-        public string Name
-        {
-            get { return txtName.Text; }
-            set { txtName.Text = value; }
-        }
+             
+                txtTotalStudent.Text = totalStudents.ToString();
+                txtAverageAge.Text = averageAge.ToString("F2");
 
-        public string Surname
-        {
-            get { return txtSurname.Text; }
-            set { txtSurname.Text = value; }
-        }
-
-        public string Age
-        {
-            get { return txtAge.Text; }
-            set { txtAge.Text = value; }
-        }
-
-        public string Course
-        {
-            get { return comboBoxCourse.Text; }
-            set { comboBoxCourse.Text = value; }
+                MessageBox.Show("Summary generated successfully! Check summary.txt.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while generating the summary: " + ex.Message);
+            }
         }
     }
-
 }
