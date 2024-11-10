@@ -24,53 +24,52 @@ namespace Student_Management_System_PRG282
         }
 
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Retrieve input from the form fields using properties
-            string studentID = this.StudentID;
-            string name = this.Name;
-            string surname = this.Surname;
-            string age = this.Age;
-            string course = this.Course;
-
-            // Check if all fields are filled out
-            if (!string.IsNullOrEmpty(studentID) && !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname)
-                && !string.IsNullOrEmpty(age) && !string.IsNullOrEmpty(course))
+            try
             {
-                try
+                DataHandeler dataHandler = new DataHandeler();
+                
+                // Validate age input
+                if (!int.TryParse(txtAge.Text, out int age))
                 {
-                    // Append student details to the students.txt file
-                    using (StreamWriter sw = new StreamWriter("students.txt", true))
-                    {
-                        sw.WriteLine($"{studentID},{name},{surname},{age},{course}");
-                    }
-
-                    // Show success message
-                    MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Clear input fields after adding
-                    ClearFields();
+                    MessageBox.Show("Please enter a valid age", "Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                catch (Exception ex)
-                {
-                    // Show error message if something goes wrong
-                    MessageBox.Show($"Failed to add student: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+                Student newStudent = dataHandler.CreateNewStudent(
+                    txtStudentID.Text,
+                    txtName.Text,
+                    txtSurname.Text,
+                    age,
+                    comboBoxCourse.Text
+                );
+
+                // Save the student
+                dataHandler.SaveStudent(newStudent);
+
+                MessageBox.Show("Student added successfully!", "Success", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Clear the form after successful addition
+                ClearForm();
             }
-            else
+            catch (Exception ex)
             {
-                // Show warning message if any field is empty
-                MessageBox.Show("All fields are required!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Error adding student: {ex.Message}", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ClearFields()
+        // Helper method to clear the form
+        private void ClearForm()
         {
             txtStudentID.Clear();
             txtName.Clear();
             txtSurname.Clear();
             txtAge.Clear();
-            comboBoxFilterCourses.SelectedIndex = -1; // Reset course selection
+            comboBoxCourse.SelectedIndex = -1;
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
